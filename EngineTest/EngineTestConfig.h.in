@@ -1,0 +1,2 @@
+#define EngineTest_VERSION_MAJOR @EngineTest_VERSION_MAJOR@
+#define EngineTest_VERSION_MINOR @EngineTest_VERSION_MINOR@
