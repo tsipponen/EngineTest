@@ -2,19 +2,16 @@
 #include <string>
 using namespace std;
 
-class Engine
-{
-private:
-    string name;
-public:
-    Engine() {
-        name = "tiny";
-    }
-    string getName() {
-        return name;
-    }
-    void setName(string x) {
-        name = x;
-    }
+class Engine{
+    private:
+        string name;
+    public:
+        Engine();
+        string getName();
+        void setName(string name);
 };
+
+
+    
+
 
