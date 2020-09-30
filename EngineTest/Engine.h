@@ -9,6 +9,7 @@ class Engine{
         Engine();
         string getName();
         void setName(string name);
+        void run(int numberOfPersons);
 };
 
 
