@@ -1,7 +1,24 @@
+#ifndef UNICODE
+#define UNICODE
+#endif
+
 #include "Engine.h"
 #include <iostream>
 #include "Person.h"
 #include <vector>
+#include <time.h>
+
+#include <windows.h>
+
+#include <winuser.h>
+
+#if DEBUG
+	#define LOG(x) std::cout << x << std::endl;
+#else
+	#define LOG(x)
+#endif
+
+
 using namespace std;
 
 Engine::Engine()
@@ -21,27 +38,30 @@ void Engine::setName(string name)
 
 void Engine::run(int numberOfPersons)
 {
-	string names[3] = {"Mauno", "Jouni", "Terho"};
-	string jobTitles[3] = {"Unemployed", "IT consultant", "Painter"};
-	int ages[3] = { 18, 27, 45 };
+	string names[6] = { "Mauno", "Jouni", "Terho", "Mikko", "Jussi", "Pirjo" };
+	string jobTitles[6] = {"Unemployed", "IT consultant", "Painter", "Salesman", "Accountant", "Cleaner"};
+	int ages[6] = { 18, 27, 45, 31, 53, 66 };
 
 	std::vector<Person> persons;
-
-	for (int i = 0; i < numberOfPersons - 1; i++)
+	string randomName;
+	for (int i = 0; i < numberOfPersons; i++)
 	{
-		string randomName = names[rand() % 2];
-		string randomJobTitle = jobTitles[rand() % 2];
-		int randomAge = ages[rand() % 2];
+		srand((unsigned) time(0) - rand() % 200);
+		randomName = names[rand() % 6];
+		string randomJobTitle = jobTitles[rand() % 6];
+		int randomAge = ages[rand() % 6];
 
 		Person person(randomName, randomJobTitle, randomAge);
 		persons.push_back(person);
 	}
 
-	for (int i = 0; i < numberOfPersons - 1; i++)
+	for (int i = 0; i < numberOfPersons; i++)
 	{
-		cout << persons[i].getName() << ", " << persons[i].getJobTitle() <<
-			", " << persons[i].getAge() << endl;
+		LOG(persons[i].getName());
+		LOG(persons[i].getJobTitle());
+		LOG(persons[i].getAge());
 	}
 
 }
+
 

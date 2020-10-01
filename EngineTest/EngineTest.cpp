@@ -13,7 +13,7 @@ int main()
     cout << " Engine name: " << engine.getName() << ", version: " << EngineTest_VERSION_MAJOR
         << "." << EngineTest_VERSION_MINOR << endl;
     
-    engine.run(2);
+    engine.run(4);
 
     return 0;
 }
